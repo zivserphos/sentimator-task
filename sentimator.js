@@ -32,20 +32,22 @@ async function sentimator()
     }
     else
     {
-        console.log(response)
-        alert("aint valid")
+        alert("AINT VALID")
+        const result = document.getElementById("result")
+        result.append(await response.json())
+        
     }
     const cat = document.createElement("img")
     cat.src = "https://http.cat/" + response.status
-    document.querySelector(".loader").hidden = true
     document.body.append(cat)}
     
     
     catch(err)
     {
-        alert("shit")
-        console.log(err)
+        const result = document.getElementById("result")
+        result.append(err)
     }
+    document.querySelector(".loader").hidden = true
     
 }
 
