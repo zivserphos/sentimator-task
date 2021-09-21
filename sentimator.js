@@ -1,9 +1,7 @@
-
-document.body.append("suck my cock")
-
 let x;
 async function sentimator()
 {
+    document.querySelector(".loader").hidden = false
     const response = await fetch("https://sentim-api.herokuapp.com/api/v1/" ,
     {
         method: "POST",
@@ -16,7 +14,19 @@ async function sentimator()
 
     if (response.ok)
     {
-        console.log(await response.json())
+       const data = await response.json()
+       const result = document.getElementById("result")
+       if (data.result.type === "positive")
+            result.style.backgroundColor = "green"
+       else if (data.result.type === "negative")
+            result.style.backgroundColor = "red"
+       else 
+            result.style.backgroundColor = "grey"
+       document.querySelector(".loader").hidden = true
+       for (let key in data.result)
+       {
+           result.append(key , " ", data.result[key] , " ")
+       } 
     }
     else
     {
