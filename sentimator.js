@@ -3,7 +3,6 @@ async function sentimator()
 {
     try{
     document.getElementById("result").textContent = ""
-    document.createElement("img").textContent = ""
     document.querySelector(".loader").hidden = false
     const response = await fetch("https://sentim-api.herokuapp.com/api/v1/" ,
     {
@@ -34,13 +33,13 @@ async function sentimator()
     }
     else
     {
-        alert("AINT VALID")
         const result = document.getElementById("result")
         result.append(await response.json())
         
     }
     const cat = document.getElementById("cat")
     cat.src = "https://http.cat/" + response.status
+
     }
     
     
@@ -48,6 +47,9 @@ async function sentimator()
     {
         const result = document.getElementById("result")
         result.append(err)
+        const cat = document.getElementById("cat")
+        cat.src = "https://http.cat/500"
+        alert("AINT VALID")
     }
     document.querySelector(".loader").hidden = true
     

@@ -3,6 +3,12 @@
     background-color: aqua;
 }
 
+button
+{
+    background-color: hotpink;
+    font-weight: bold;
+} 
+
 #result
 {
     display: inline;
