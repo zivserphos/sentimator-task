@@ -27,12 +27,16 @@ async function sentimator()
        {
            result.append(key , " ", data.result[key] , " ")
        } 
+      
     }
     else
     {
-        alert("your mom's a hoe")
+        alert("aint valid")
     }
-    
+    const cat = document.createElement("img")
+    cat.src = "https://http.cat/" + response.status
+    document.body.append(cat)
+
 }
 document.getElementById("submit").addEventListener("click", (e) => {
 x = document.getElementById("text").value
