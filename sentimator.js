@@ -2,6 +2,8 @@ let x;
 async function sentimator()
 {
     try{
+    document.getElementById("result").textContent = ""
+    document.createElement("img").textContent = ""
     document.querySelector(".loader").hidden = false
     const response = await fetch("https://sentim-api.herokuapp.com/api/v1/" ,
     {
@@ -37,9 +39,9 @@ async function sentimator()
         result.append(await response.json())
         
     }
-    const cat = document.createElement("img")
+    const cat = document.getElementById("cat")
     cat.src = "https://http.cat/" + response.status
-    document.body.append(cat)}
+    }
     
     
     catch(err)
